@@ -1,0 +1,530 @@
+/* ================================
+   GLOBAL
+================================ */
+
+body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+
+/* ================================
+   HOME HEADER
+================================ */
+
+.student-header {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    padding: 25px 10px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+    margin-bottom: 25px;
+}
+
+
+/* ================================
+   ADD STUDENT BUTTON
+================================ */
+
+.add-student-btn {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white !important;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+.add-student-btn:hover {
+    color: white !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+
+/* ================================
+   STUDENT CARD
+================================ */
+
+.student-card {
+    border: none !important;
+    border-radius: 18px !important;
+    background: #ffffff;
+    min-height: 315px;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08) !important;
+
+    transition: all 0.3s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Top gradient line */
+
+.student-card::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #7c3aed
+    );
+}
+
+
+/* Card hover */
+
+.student-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.15) !important;
+}
+
+
+/* ================================
+   CARD CONTENT
+================================ */
+
+.student-card .card-body {
+    padding: 25px;
+}
+
+
+/* Student name */
+
+.student-name {
+    font-size: 21px;
+    font-weight: 700;
+    color: #111827;
+
+    margin-bottom: 20px;
+}
+
+
+/* Student information */
+
+.student-info {
+    color: #4b5563;
+    font-size: 15px;
+
+    margin-bottom: 14px;
+}
+
+
+/* Labels */
+
+.student-info strong {
+    color: #111827;
+}
+
+
+/* ================================
+   ATTENDANCE BADGE
+================================ */
+
+.attendance-badge {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    margin-top: 3px;
+    margin-bottom: 18px;
+}
+
+
+/* Present */
+
+.present {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+
+/* Absent */
+
+.absent {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* ================================
+   ACTION BUTTONS
+================================ */
+
+.student-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+
+/* Common button styling */
+
+.student-actions .btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 18px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+
+/* ================================
+   VIEW BUTTON
+================================ */
+
+.view-btn {
+    background: #2563eb !important;
+    color: white !important;
+
+    box-shadow:
+        0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+
+.view-btn:hover {
+    background: #1d4ed8 !important;
+    color: white !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(37, 99, 235, 0.35);
+}
+
+
+/* ================================
+   EDIT BUTTON
+================================ */
+
+.edit-btn {
+    background: #06b6d4 !important;
+    color: white !important;
+
+    box-shadow:
+        0 4px 10px rgba(6, 182, 212, 0.25);
+}
+
+
+.edit-btn:hover {
+    background: #0891b2 !important;
+    color: white !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(6, 182, 212, 0.35);
+}
+
+
+/* ================================
+   DELETE BUTTON
+================================ */
+
+.delete-btn {
+    background: #ef4444 !important;
+    color: white !important;
+
+    box-shadow:
+        0 4px 10px rgba(239, 68, 68, 0.25);
+}
+
+
+.delete-btn:hover {
+    background: #dc2626 !important;
+    color: white !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(239, 68, 68, 0.35);
+}
+
+
+/* ================================
+   BUTTON CLICK EFFECT
+================================ */
+
+.student-actions .btn:active {
+    transform: scale(0.96);
+}
+
+
+/* ================================
+   FORM PAGE
+================================ */
+
+.form-page {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f8fafc
+        );
+
+    padding-bottom: 50px;
+}
+
+
+/* Form header */
+
+.form-header {
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+
+    margin-bottom: 40px;
+
+    font-weight: 700;
+}
+
+
+/* Form */
+
+.student-form {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px rgba(15, 23, 42, 0.1);
+}
+
+
+/* Form labels */
+
+.student-form .form-label {
+    font-weight: 600;
+    color: #374151;
+}
+
+
+/* Inputs */
+
+.student-form .form-control,
+.student-form .form-select {
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    padding: 11px 14px;
+
+    transition: 0.2s;
+}
+
+
+/* Input focus */
+
+.student-form .form-control:focus,
+.student-form .form-select:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* Submit button */
+
+.submit-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 25px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+
+/* ================================
+   VIEW STUDENT PAGE
+================================ */
+
+.view-page {
+    min-height: 100vh;
+
+    background: #f4f7fb;
+
+    padding: 40px 20px;
+}
+
+
+/* View title */
+
+.view-title {
+    text-align: center;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 30px;
+}
+
+
+/* View card */
+
+.view-card {
+    max-width: 500px;
+
+    margin: auto;
+
+    border: none !important;
+
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 10px 35px rgba(15, 23, 42, 0.1) !important;
+}
+
+
+/* View card body */
+
+.view-card .card-body {
+    padding: 30px;
+}
+
+
+/* View information */
+
+.view-info {
+    font-size: 17px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 992px) {
+
+    .student-header {
+        font-size: 34px;
+    }
+
+    .student-card {
+        min-height: 300px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .student-header {
+        font-size: 28px;
+
+        padding: 20px 10px;
+    }
+
+    .student-card {
+        min-height: auto;
+    }
+
+    .student-actions {
+        flex-wrap: wrap;
+    }
+
+    .student-actions .btn {
+        padding: 8px 14px;
+    }
+
+    .student-form {
+        width: 90% !important;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .student-header {
+        font-size: 24px;
+    }
+
+    .student-card .card-body {
+        padding: 20px;
+    }
+
+    .student-actions {
+        gap: 7px;
+    }
+
+    .student-actions .btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
