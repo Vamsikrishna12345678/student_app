@@ -1,0 +1,258 @@
+/* ================================
+   VIEW PAGE
+================================ */
+
+.view-page {
+    min-height: 100vh;
+    background: #f4f7fb;
+    padding-bottom: 60px;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.view-header {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+
+    text-align: center;
+
+    padding: 25px 10px;
+    margin-bottom: 50px;
+
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+}
+
+
+/* ================================
+   VIEW CARD CONTAINER
+================================ */
+
+.view-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* ================================
+   VIEW CARD
+================================ */
+
+.view-card {
+    width: 500px;
+    max-width: 100%;
+
+    background: white;
+
+    border: none !important;
+    border-radius: 18px !important;
+
+    box-shadow: 0 10px 35px rgba(15, 23, 42, 0.10) !important;
+
+    overflow: hidden;
+
+    transition: all 0.3s ease;
+
+    position: relative;
+}
+
+
+/* Top gradient line */
+
+.view-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #7c3aed
+    );
+}
+
+
+/* Hover effect */
+
+.view-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.15) !important;
+}
+
+
+/* ================================
+   CARD BODY
+================================ */
+
+.view-card .card-body {
+    padding: 35px;
+}
+
+
+/* ================================
+   STUDENT NAME
+================================ */
+
+.view-name {
+    text-align: center;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 30px;
+}
+
+
+/* ================================
+   STUDENT INFORMATION
+================================ */
+
+.view-info {
+    font-size: 17px;
+
+    color: #4b5563;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.view-info strong {
+    color: #111827;
+}
+
+
+/* ================================
+   ATTENDANCE
+================================ */
+
+.view-attendance {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-top: 20px;
+}
+
+
+/* Present */
+
+.view-present {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+
+/* Absent */
+
+.view-absent {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+.view-actions {
+    display: flex;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+
+.view-home-btn {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+    color: white !important;
+
+    border: none;
+
+    padding: 10px 24px;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+}
+
+
+.view-home-btn:hover {
+    color: white !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+
+    .view-header {
+        font-size: 28px;
+        padding: 20px 10px;
+    }
+
+    .view-card {
+        width: 95%;
+    }
+
+    .view-card .card-body {
+        padding: 25px;
+    }
+
+    .view-name {
+        font-size: 24px;
+    }
+
+    .view-info {
+        font-size: 15px;
+    }
+
+    .view-actions {
+        flex-direction: column;
+    }
+
+    .view-home-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

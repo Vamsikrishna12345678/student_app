@@ -1,39 +1,108 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import "./view.css"
 
 const View = () => {
-  let [std, setStd] = useState({})
 
-  let { id } = useParams()
+    let [std, setStd] = useState({})
 
-  async function getStudent() {
-    let res = await axios.get(`https://students-wy23.onrender.com/students/${id}`)
-    setStd(res.data)
+    let { id } = useParams()
 
-  }
-  useEffect(() => {
-    getStudent()
-  }, [])
+    async function getStudent() {
+        let res = await axios.get(
+            `https://students-wy23.onrender.com/students/${id}`
+        )
 
-  return (
-    <div>
-      <h1>Student details of {std.name}</h1>
-      <div className="card" style={{ width: "18rem" }}>
+        setStd(res.data)
+    }
 
-        <div className="card-body">
-          <p className="card-text">Name:{std.name}</p>
-          <p className="card-text">Age:{std.age}</p>
-          <p className="card-text">Course:{std.course}</p>
-          <p className="card-text">Marks:{std.marks}</p>
-          <p className="card-text">Locatoin:{std.location}</p>
-          {std.isPresent ? <button href="#" className="btn btn-success btn-sm">Present</button>:<button href="#" className="btn btn-danger btn-sm">absent</button>}
-          <Link className="btn btn-warning btn-sm mx-2" to= {"/"}>Home</Link>
+    useEffect(() => {
+        getStudent()
+    }, [])
+
+    return (
+        <div className="view-page">
+
+            {/* Header */}
+
+            <h1 className="view-header">
+                Student Details
+            </h1>
+
+
+            {/* Card */}
+
+            <div className="view-container">
+
+                <div className="card view-card">
+
+                    <div className="card-body">
+
+                        <h2 className="view-name">
+                            {std.name}
+                        </h2>
+
+
+                        <p className="view-info">
+                            <strong>Name:</strong> {std.name}
+                        </p>
+
+                        <p className="view-info">
+                            <strong>Age:</strong> {std.age}
+                        </p>
+
+                        <p className="view-info">
+                            <strong>Course:</strong> {std.course}
+                        </p>
+
+                        <p className="view-info">
+                            <strong>Marks:</strong> {std.marks}
+                        </p>
+
+                        <p className="view-info">
+                            <strong>Location:</strong> {std.location}
+                        </p>
+
+
+                        {/* Attendance */}
+
+                        <div>
+                            {
+                                std.isPresent
+                                    ?
+                                    <span className="view-attendance view-present">
+                                        ● Present
+                                    </span>
+                                    :
+                                    <span className="view-attendance view-absent">
+                                        ● Absent
+                                    </span>
+                            }
+                        </div>
+
+
+                        {/* Home button */}
+
+                        <div className="view-actions">
+
+                            <Link
+                                className="view-home-btn"
+                                to="/"
+                            >
+                                ← Back to Home
+                            </Link>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-      </div>
-
-    </div>
-  )
+    )
 }
 
 export default View
