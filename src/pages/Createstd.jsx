@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Createstd = () => {
+
     let navigate = useNavigate()
 
     let [name, setName] = useState("")
@@ -10,105 +11,196 @@ const Createstd = () => {
     let [course, setCourse] = useState("")
     let [marks, setMarks] = useState("")
     let [location, setLocation] = useState("")
-    let [isPresent, setIsPresent] = useState(false)
+    let [isPresent, setIsPresent] = useState("")
+
 
     function handleSubmit(e) {
-        e.preventDefault()
-        let student = {
-            "name": name,
-            "course": course,
-            "age": age,
-            "location": location,
-            "marks": marks,
-            "isPresent": isPresent
-        }
-        async function addStudent(){
-            await axios.post("https://students-wy23.onrender.com/students/",student)
-            navigate('/')
-        }
-        addStudent()
+    e.preventDefault()
+
+    // Check all fields
+    if (
+        name.trim() === "" ||
+        age === "" ||
+        course.trim() === "" ||
+        marks === "" ||
+        location.trim() === "" ||
+        isPresent === ""
+    ) {
+        alert("Please fill all the fields")
+        return
     }
 
+    let student = {
+        name: name,
+        age: age,
+        course: course,
+        marks: marks,
+        location: location,
+        isPresent: isPresent === "true"
+    }
+
+    async function addStudent() {
+
+        try {
+
+            await axios.post(
+                "https://students-wy23.onrender.com/students/",
+                student
+            )
+
+            // After successful POST, go to Home
+            navigate("/")
+
+        } catch (error) {
+
+            console.log(error)
+
+            alert("Student was not added. Please try again.")
+
+        }
+    }
+
+    addStudent()
+}
 
 
     return (
+        <div className="form-page">
 
-        <>
-        <h2 className='bg-primary align-items text-center'>Create Student</h2>
-        <div className="d-flex justify-content-center align-items-center vh-100">
-            <form className="w-50" onSubmit={handleSubmit}>
-                <div className="mb-3 border border-dark p-4 rounded">
+            <h2 className="form-header">
+                Create Student
+            </h2>
 
-                    <label className="form-label">Name</label>
+
+            <div className="d-flex justify-content-center align-items-center">
+
+                <form
+                    className="student-form w-50"
+                    onSubmit={handleSubmit}
+                >
+
+                    {/* Name */}
+
+                    <label className="form-label">
+                        Name
+                    </label>
+
                     <input
                         type="text"
                         className="form-control mb-3"
-                        placeholder="Name"
+                        placeholder="Enter name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-
+                        required
                     />
 
-                    <label className="form-label">Age</label>
+
+                    {/* Age */}
+
+                    <label className="form-label">
+                        Age
+                    </label>
+
                     <input
                         type="number"
                         className="form-control mb-3"
-                        placeholder="Age"
+                        placeholder="Enter age"
                         value={age}
                         onChange={(e) => setAge(e.target.value)}
-
+                        required
                     />
 
-                    <label className="form-label">Course</label>
+
+                    {/* Course */}
+
+                    <label className="form-label">
+                        Course
+                    </label>
+
                     <input
                         type="text"
                         className="form-control mb-3"
-                        placeholder="Course"
+                        placeholder="Enter course"
                         value={course}
                         onChange={(e) => setCourse(e.target.value)}
-
+                        required
                     />
 
-                    <label className="form-label">Marks</label>
+
+                    {/* Marks */}
+
+                    <label className="form-label">
+                        Marks
+                    </label>
+
                     <input
-                        type="text"
+                        type="number"
                         className="form-control mb-3"
-                        placeholder="Marks"
+                        placeholder="Enter marks"
                         value={marks}
                         onChange={(e) => setMarks(e.target.value)}
+                        required
                     />
 
 
-                    <label className="form-label">Location</label>
+                    {/* Location */}
+
+                    <label className="form-label">
+                        Location
+                    </label>
+
                     <input
                         type="text"
                         className="form-control mb-3"
-                        placeholder="City"
+                        placeholder="Enter city"
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
-
+                        required
                     />
 
-                    <label className="form-label">Attendance</label>
-                    <select className="form-select mb-3"
-                        value={isPresent}
-                        onChange={(e) => setIsPresent(e.target.value === "true")}
 
+                    {/* Attendance */}
+
+                    <label className="form-label">
+                        Attendance
+                    </label>
+
+                    <select
+                        className="form-select mb-3"
+                        value={isPresent}
+                        onChange={(e) => setIsPresent(e.target.value)}
+                        required
                     >
-                        <option value="">Select Attendance</option>
-                        <option value="true">Present</option>
-                        <option value="false">Absent</option>
+
+                        <option value="">
+                            Select Attendance
+                        </option>
+
+                        <option value="true">
+                            Present
+                        </option>
+
+                        <option value="false">
+                            Absent
+                        </option>
 
                     </select>
 
-                    <button className="btn btn-primary">
+
+                    {/* Submit */}
+
+                    <button
+                        type="submit"
+                        className="submit-btn"
+                    >
                         Add Student
                     </button>
 
-                </div>
-            </form>
+                </form>
+
+            </div>
+
         </div>
-        </>
     )
 }
 
